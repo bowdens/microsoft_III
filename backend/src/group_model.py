@@ -16,6 +16,9 @@ class GroupModel():
 
     def to_json(self):
         return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity)
+        
+    def to_dict(self):
+        return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity}
 
     @property
     def id(self):

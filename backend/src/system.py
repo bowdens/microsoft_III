@@ -6,6 +6,9 @@ class System():
         self.__users = {}
         self.__groups = {}
 
+    def get_groups(self):
+        return self.__groups
+        
     def get_group(self, id):
         return self.__groups.get(id)
         

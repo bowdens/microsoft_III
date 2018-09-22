@@ -9,25 +9,29 @@ class GroupModel():
         self.course_code = course_code
         self.time = time
         self.convenor = convenor
-        self.atendees = [convenor]
+        self.attendees = [convenor]
         self.__max_capacity = max_capacity
         self.privacy_level = privacy_level
 
 
     def to_json(self):
-        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.atendees)
+        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.attendees)
 
     def to_dict(self):
-        return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity}
+        return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity, "num_attending": self.num_attending()}
 
     def add_user(self, user):
-        if user in self.atendees:
+        if user in self.attendees:
             return
-        elif len(self.atendees) >= self.max_capacity:
+        elif len(self.attendees) >= self.max_capacity:
             return
         else:
-            self.atendees.append(user)
+            self.attendees.append(user)
 
+    def num_attending(self):
+      return len(self.attendees)
+    
+    
     @property
     def id(self):
         return self.__id

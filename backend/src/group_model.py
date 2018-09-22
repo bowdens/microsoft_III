@@ -1,7 +1,7 @@
 from flask import jsonify
 
 class GroupModel():
-    def __init__(self, id, name, location, description, course_code, time, convenor, atendees, max_capacity, privacy_level):
+    def __init__(self, id, name, location, description, course_code, time, convenor, max_capacity, privacy_level):
         self.__id = id
         self.__name = name
         self.location = location
@@ -9,16 +9,24 @@ class GroupModel():
         self.course_code = course_code
         self.time = time
         self.convenor = convenor
-        self.atendees = atendees
+        self.atendees = [convenor]
         self.__max_capacity = max_capacity
         self.privacy_level = privacy_level
 
 
     def to_json(self):
-        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity)
-        
+        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.atendees)
+
     def to_dict(self):
         return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity}
+
+    def add_user(self, user):
+        if user in self.atendees:
+            return
+        elif len(self.atendees) >= self.max_capacity:
+            return
+        else:
+            self.atendees.append(user)
 
     @property
     def id(self):
@@ -35,7 +43,7 @@ class GroupModel():
     @name.setter
     def name(self, name):
         self.__name = name
-        
+
     @property
     def max_capacity(self):
         return self.__max_capacity

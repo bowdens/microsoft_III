@@ -10,12 +10,12 @@ class GroupModel():
         self.time = time
         self.convenor = convenor
         self.atendees = atendees
-        self.max_capacity = max_capacity
+        self.__max_capacity = max_capacity
         self.privacy_level = privacy_level
 
 
     def to_json(self):
-        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code)
+        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity)
 
     @property
     def id(self):
@@ -32,3 +32,14 @@ class GroupModel():
     @name.setter
     def name(self, name):
         self.__name = name
+        
+    @property
+    def max_capacity(self):
+        return self.__max_capacity
+
+    @max_capacity.setter
+    def max_capacity(self, max_capacity):
+        if max_capacity > 0 and max_capacity < 1000:
+            self.__max_capacity = max_capacity
+        else:
+            raise ValueError("max_capacity must be valid {}".format(max_capacity))

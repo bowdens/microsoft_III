@@ -17,5 +17,5 @@ user.add_subject(Subject("COMP1511", "DN"))
 user.add_subject(Subject("COMP1521", "CR"))
 system.add_user(user)
 
-group = GroupModel("1", "name", "location", "description", ["COMP101", "COMP102"], 63643534234, "tester", ["tester"], 5, 1)
+group = GroupModel("1", "name", "location", "description", ["COMP1511", "COMP1521"], 63643534234, "tester", ["tester"], 5, 1)
 system.add_group(group)

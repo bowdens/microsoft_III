@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Register as a new user</h1>
+<i>For the purposes of this prototype, registering as a new user simply accepts a new username</i>
+
+<form method="post">
+    <input type="text" name="username"  placeholder="Username"><br>
+    <input type="text" name="fname" placeholder="First Name"><br>
+    <input type="text" name="lname" placehodler="LastName"><br>
+    <input type="submit" value="Create new account">
+</form>
+
+{% endblock %}

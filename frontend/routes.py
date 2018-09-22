@@ -7,13 +7,7 @@ import time
 
 @app.route("/")
 def index():
-    return "test"
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if flask.request.method == 'GET':
-        return flask.render_template('login.html')
-    return flask.redirect(flask.url_for('homepage'))
+    return flask.redirect(flask.url_for("homepage"))
 
 
 @app.route('/homepage', methods=['GET', 'POST'])
@@ -24,6 +18,7 @@ def homepage():
 
     #else display all groups in the system -- maybe sort by date
     #just have a list of group names, date-time, course
+    print(groups)
     return flask.render_template('homepage.html', groups=groups)
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -69,3 +64,12 @@ def show_group(id):
         except Exception as e:
             print(e)
             return flask.render_template('error.html', error="There was an error registering for this event\n{}".format(e))
+
+@app.route('/user', methods=['GET', 'POST'])
+def user():
+    if flask.request.method == 'GET':
+        return flask.render_template('user.html')
+    else:
+        return flask.render_template('error.html', error="not implemented yet")
+
+

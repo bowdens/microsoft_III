@@ -7,12 +7,12 @@
 Filter Groups
 </b>
 <div>
-   Date: 
+   Date:
 	<br><input type="datetime-local" name="chosen_date">
 </div>
 
 {% for group in groups.values() %}
-<li><a href = "{{url_for('show_group', id = group['id'])}}">{{group['name']}}: {{group['num_attending']}}/{{group['max_capacity']}} Capacity</a></li><br>
+<li><a href = "{{url_for('show_group', id=group['id'])}}">{{group['name']}}: {{group['num_attending']}}/{{group['max_capacity']}} Capacity</a></li><br>
 {% endfor %}
 
 {% endblock %}

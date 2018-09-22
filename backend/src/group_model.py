@@ -18,7 +18,7 @@ class GroupModel():
         return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.attendees, id=self.id, convenor=self.convenor, privacy_level=self.privacy_level)
 
     def to_dict(self):
-        return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity, "num_attending": self.num_attending()}
+        return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity, "num_attending": self.num_attending(), "id": self.id, "privacy_level":self.privacy_level, "convenor":self.convenor}
 
     def add_user(self, user):
         if user in self.attendees:
@@ -30,8 +30,8 @@ class GroupModel():
 
     def num_attending(self):
       return len(self.attendees)
-    
-    
+
+
     @property
     def id(self):
         return self.__id

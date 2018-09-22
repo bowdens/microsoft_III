@@ -5,7 +5,7 @@
 GET /group/
 
 Returns a list of all the groups
-
+```json
 {
   "groups": [
   {
@@ -23,11 +23,12 @@ Returns a list of all the groups
     ...
     ]
 }
-
+```
 ## Get particular group
 GET /group/<id>
 
 returns
+```json
 {
     "id": int,
   "name": string,
@@ -40,10 +41,12 @@ returns
   "maxCapacity": int,
   "privacyLevel": int
 }
+```
 
 ## Get a particular user
 GET /user/<id>
 returns
+```json
 {
   "id": int,
   "fName": string,
@@ -56,3 +59,4 @@ returns
     ...
   ]
 }
+```

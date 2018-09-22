@@ -7,7 +7,16 @@ class System():
         self.__groups = {}
 
     def get_group(self, id):
-        return self.groups.get(id)
+        return self.__groups.get(id)
+        
+    def add_group(self, group):
+        if not isinstance(group, GroupModel):
+            raise TypeError("Invalid type")
+        id = group.id
+        if self.get_group(id) is None:
+            self.__groups[id] = group
+        else:
+            raise ValueError("Group key is already used")
 
     def get_user(self, id):
         print("getting {} in {}".format(id, self.__users))

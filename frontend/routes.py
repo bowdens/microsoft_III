@@ -1,6 +1,6 @@
 import flask
 import flask_login
-import src.login
+from src.login import check_password, User
 from server import app
 
 @app.route("/")
@@ -19,7 +19,7 @@ def login():
                '''
 
     email = flask.request.form['email']
-    if flask.request.form['password'] == users[email]['password']:
+    if check_password(email, flask.request.form['password']):
         user = User()
         user.id = email
         flask_login.login_user(user)

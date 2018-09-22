@@ -9,6 +9,8 @@ users = {'test': {'password': '123456'}}
 class User(flask_login.UserMixin):
     pass
 
+def check_password(username, password):
+  return password == users[username]['password']
 
 @login_manager.user_loader
 def user_loader(email):

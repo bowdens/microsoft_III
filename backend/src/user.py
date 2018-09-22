@@ -63,3 +63,12 @@ class Subject(Resource):
 
             return self.get(user_id)
 
+
+class Validate(Resource):
+    def post(self):
+        username = request.form.get("username")
+        password = request.form.get("password")
+        if system.validate_user(username, password):
+            return "true"
+        else:
+            return "false"

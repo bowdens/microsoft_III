@@ -8,7 +8,7 @@ class System():
 
     def get_group(self, id):
         return self.__groups.get(id)
-        
+
     def add_group(self, group):
         if not isinstance(group, GroupModel):
             raise TypeError("Invalid type")
@@ -30,6 +30,12 @@ class System():
             self.__users[id] = user
         else:
             raise ValueError("User key is already used")
+
+    def validate_user(self, username, password):
+        user = self.get_user(username)
+        if user is None:
+            return false
+        return user.verify_password(password)
 
     def remove_user(self, id):
         if self.get_user(id) is None:

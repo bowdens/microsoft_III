@@ -46,6 +46,7 @@ returns
 ## Get a particular user
 GET /user/<id>
 returns
+  
 ```json
 {
   "fname": "string",
@@ -64,10 +65,24 @@ returns
 }
 ```
   
+  ## Create new user
+  POST /user/<id>
+  body
+  
+  ```json
+  {
+    "fname": "first name",
+    "lname": "last name",
+    "username": "username",
+    "password": "plaintext password"
+    }
+  ```
+  
   ### Subjects
   GET /user/<id>/subjects
   returns
-  ```
+  
+  ```json
    [
     {
         "courseCode": "COMP1511",
@@ -82,12 +97,16 @@ returns
         "mark": "CR"
     }
 ]
+```
   
 POST /usr/<id>/subjects
 body
+
+  ```json
 {
   "courseCode": "COMP1511",
   "mark": "DN"
 }
+  ```
 returns
 (same as above)

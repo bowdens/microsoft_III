@@ -1,4 +1,5 @@
 from src.user import User
+from src.group import Group
 from server import app, api
 
 api.add_resource(User, "/user/<int:user_id>")

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if group %}
+
+<h1>{{group['name']}}</h1>
+
+<p>{{group['description']}}</p>
+
+Attending:
+<ul>
+    {% for attendee in group["attendees"] %}
+    <li>{{attendee}}</li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    <input type="text" name="username" placeholder="username">
+    <input type="submit" value="Register">
+</form>
+
+{% else %}
+
+<p>That group could not be found!</p>
+{% endif %}
+
+{% endblock %}

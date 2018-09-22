@@ -25,6 +25,12 @@ def homepage():
     #just have a list of group names, date-time, course
     return flask.render_template('homepage.html', groups=groups)
 
+@app.route('/create', methods=['GET', 'POST'])
+def create():
+    if flask.request.method == 'POST':
+        pass
+    return flask.render_template('create.html')
+
 @app.route('/logout')
 def logout():
     flask_login.logout_user()

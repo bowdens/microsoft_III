@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" >
+    <head>
+    {% block header %}{% endblock %}
+    </head>
 		<style>
 				body {
 		margin: 100px;
@@ -47,11 +50,12 @@
 		<img src="https://www.unsw.edu.au/sites/default/files/UNSW_0.png"><br>
 		<br>
 		<div class="nav">
-		<ul>
+		<ul style="width:100%;>
 		   <font face = "Geneva" color="black" size = '3' weight: '3'>
 		
 		      <li class="home"><a href = "{{url_for('homepage')}}">Home</a></li>
 		      <li class="dashboard"><a href = "{{url_for('homepage')}}">Calender</a></li>
+          <li class="dashboard"><a href = "{{url_for('create')}}">Create group</a></li>
 		</ul>
 		<br>
 		<br>

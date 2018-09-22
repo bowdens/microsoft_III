@@ -1,4 +1,4 @@
-from src.subject import Subject
+from src.subject import SubjectModel
 from passlib.apps import custom_app_context as pwd_context
 
 from json import dumps as jsonify
@@ -53,13 +53,15 @@ class UserModel():
 
     @password.setter
     def password(self, plaintextPassword):
-        self.__password = pwd_context.encrypt(plaintextPassword)
+        # todo change this back
+        self.__password = plaintextPassword
+        #self.__password = pwd_context.encrypt(plaintextPassword)
 
     @property
     def subjects(self):
         return self.__subjects
 
     def add_subject(self, subject):
-        if not isinstance(subject, Subject):
+        if not isinstance(subject, SubjectModel):
             raise TypeError("Subject must be a Subject")
         self.__subjects.append(subject)

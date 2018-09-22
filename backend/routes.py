@@ -1,8 +1,9 @@
-from src.user import User
+from src.user import User, Subject
 from src.group import Group
 from server import app, api, auth
 
 api.add_resource(User, "/user/<user_id>")
+api.add_resource(Subject, "/user/<user_id>/subjects")
 api.add_resource(Group, "/group/<group_id>")
 
 

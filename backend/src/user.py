@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-def User(Resource):
+class User(Resource):
     def __init__(self):
         pass
 

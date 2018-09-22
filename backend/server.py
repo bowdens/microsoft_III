@@ -212,3 +212,5 @@ group = GroupModel("49", "Group Lavina", "Location", "Regione accumsan tacimates
 system.add_group(group)
 group = GroupModel("50", "Group Stacie", "Location", "Lorem ipsum dolor sit amet, legendos instructior ius in, quidam tritani labores duo an. Amet blandit elaboraret no vel, sed in homero invenire efficiantur. Ei vix utamur nostrum. Ex alia voluptua senserit pro.", ['BABS3071', 'ZPEM3203', 'PSYC3311'], 63643534234, "tester12", ['tester10', 'tester20', 'tester12', 'tester17'], 20, 1)
 system.add_group(group)
+
+system.add_group(GroupModel("2", "test group", "test location", "test description", ["COMP3331", "COMP6841"], 63643534800, "tester", ["tester"], 3, 1))

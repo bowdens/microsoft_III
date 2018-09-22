@@ -52,19 +52,19 @@ returns
   
 ```json
 {
-  "fname": "string",
-  "lname": "string",
-  "username": "string",
-  "subjects": [
-    {
-      "courseCode": "course1",
-      "mark": "mark1"
-    },
-   {
-      "courseCode": "course2",
-      "mark": "mark2"
-    }
-  ]
+    "fname": "first",
+    "lname": "last",
+    "username": "tester",
+    "subjects": [
+        {
+            "courseCode": "COMP1511",
+            "mark": "DN"
+        },
+        {
+            "courseCode": "COMP1521",
+            "mark": "CR"
+        }
+    ]
 }
 ```
   

@@ -12,8 +12,8 @@ class UserModel():
         self.__subjects = []
 
 
-    def verify_password(self, plaintext_passowrd):
-        return pwd_context.ecnrypt(plaintext_password) == self.password
+    def verify_password(self, plaintext_password):
+        return pwd_context.verify(plaintext_password, self.password)
 
     def get_dict(self):
         subjects = []
@@ -54,8 +54,8 @@ class UserModel():
     @password.setter
     def password(self, plaintextPassword):
         # todo change this back
-        self.__password = plaintextPassword
-        #self.__password = pwd_context.encrypt(plaintextPassword)
+        # self.__password = plaintextPassword
+        self.__password = pwd_context.encrypt(plaintextPassword)
 
     @property
     def subjects(self):

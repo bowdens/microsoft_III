@@ -1,5 +1,6 @@
 from flask_restful import Resource
 from server import auth, system
+from json import dumps
 
 class User(Resource):
     #method_decorators = {'get': [auth.login_required]}
@@ -9,5 +10,6 @@ class User(Resource):
         if user is None:
             return {}
         else:
-            return user.to_json()
+            print("dict = {}".format(user.get_dict()))
+            return user.get_dict()
 

@@ -1,5 +1,5 @@
-from src.user import UserModel
-from src.group import Group
+from src.user_model import UserModel
+from src.group_model import GroupModel
 
 class System():
     def __init__(self):
@@ -10,11 +10,13 @@ class System():
         return self.groups.get(id)
 
     def get_user(self, id):
-        return self.users.get(id)
+        print("getting {} in {}".format(id, self.__users))
+        return self.__users.get(id)
 
-    def add_user(self, user, id):
-        if not instanceof(user, UserModel):
+    def add_user(self, user):
+        if not isinstance(user, UserModel):
             raise TypeError("Invalid type")
+        id = user.username
         if self.get_user(id) is None:
             self.__users[id] = user
         else:

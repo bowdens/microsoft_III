@@ -48,15 +48,18 @@ GET /user/<id>
 returns
 ```json
 {
-  "id": int,
-  "fName": string,
-  "lName": string,
-  "courses": [
+  "fname": "string",
+  "lname": "string",
+  "username": "string",
+  "subjects": [
     {
-      "courseCode": string,
-      "mark": "HD" | "DN" | "CR" | "PS" | "FL"| "ON"
-    }, 
-    ...
+      "courseCode": "course1",
+      "mark": "mark1"
+    },
+   {
+      "courseCode": "course2",
+      "mark": "mark2"
+    }
   ]
 }
 ```

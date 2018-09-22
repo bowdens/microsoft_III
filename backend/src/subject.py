@@ -1,4 +1,4 @@
-
+from flask import jsonify
 
 class Subject():
     marks = ["HD", "DN", "CR", "PS", "FL", "ON"]
@@ -6,8 +6,11 @@ class Subject():
         self.courseCode = courseCode
         self.mark = mark
 
-    def to_json(self):
-        return jsonify(courseCode=self.courseCode, mark=self.mark)
+    def to_dict(self):
+        return {
+                "courseCode": self.courseCode,
+                "mark": self.mark
+                }
 
     @property
     def courseCode(self):

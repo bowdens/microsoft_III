@@ -1,7 +1,7 @@
 from src.subject import Subject
 from passlib.apps import custom_app_context as pwd_context
 
-from flask import jsonify
+from json import dumps as jsonify
 
 class UserModel():
     def __init__(self, fname, lname, username, password):
@@ -15,8 +15,17 @@ class UserModel():
     def verify_password(self, plaintext_passowrd):
         return pwd_context.ecnrypt(plaintext_password) == self.password
 
-    def to_json(self):
-        return jsonify(username=self.username, fname=self.fname, lname=self.lname, subjects=self.subjects)
+    def get_dict(self):
+        subjects = []
+        for subject in self.subjects:
+            subjects.append(subject.to_dict())
+
+        return {
+            "fname": self.fname,
+            "lname": self.lname,
+            "username": self.username,
+            "subjects": subjects
+                }
 
     @property
     def fname(self):
@@ -51,6 +60,6 @@ class UserModel():
         return self.__subjects
 
     def add_subject(self, subject):
-        if not instanceof(subject, Subject):
+        if not isinstance(subject, Subject):
             raise TypeError("Subject must be a Subject")
         self.__subjects.append(subject)

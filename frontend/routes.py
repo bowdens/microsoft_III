@@ -29,10 +29,13 @@ def create():
         to_post['description'] = flask.request.form.get("description")
         to_post['course_code'] = flask.request.form.get("course_code")
         to_post['time'] = time.time()
-        to_post['convenor'] = "tester"
+        to_post['convenor'] = flask.request.form.get("convenor")
         to_post['max_capacity'] = flask.request.form.get("max_capacity")
         to_post['privacy_level'] = flask.request.form.get("privacy_level")
-        requests.post("http://localhost:5000/group", data = to_post)
+        print(to_post)
+        new_group = requests.post("http://localhost:5000/group", data = to_post).json()
+        print(new_group)
+        return flask.redirect(flask.url_for('show_group', id=new_group['id']))
     return flask.render_template('create.html')
 
 @app.route('/logout')

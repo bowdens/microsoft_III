@@ -8,13 +8,3 @@ api.add_resource(Validate, "/validate")
 api.add_resource(Group, "/group/<group_id>")
 api.add_resource(GroupAll, "/group")
 
-
-@app.route("/")
-def index():
-    return "test"
-
-@auth.verify_password
-def verify_password(username, password):
-    if username == "test" and password == "test":
-        return True
-    return False

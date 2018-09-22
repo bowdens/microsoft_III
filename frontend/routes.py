@@ -24,7 +24,7 @@ def homepage():
     #else display all groups in the system -- maybe sort by date
     #just have a list of group names, date-time, course
     return flask.render_template('homepage.html', groups=groups)
-    
+
 @app.route('/logout')
 def logout():
     flask_login.logout_user()

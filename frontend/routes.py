@@ -2,7 +2,6 @@ import flask
 import flask_login
 from src.login import check_password, User
 from server import app
-from 
 
 @app.route("/")
 def index():
@@ -19,12 +18,12 @@ def login():
 def homepage():
     if request.method == 'POST':
       groups = request.get("http://localhost:5000//all_groups").json()
-      
-      
+
+
     #else display all groups in the system -- maybe sort by date
     #just have a list of group names, date-time, course
     return render_template('homepage.html', groups)
-    
+
 @app.route('/logout')
 def logout():
     flask_login.logout_user()

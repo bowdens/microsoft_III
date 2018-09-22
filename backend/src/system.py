@@ -5,19 +5,27 @@ class System():
     def __init__(self):
         self.__users = {}
         self.__groups = {}
+        self.__groupID = 0
 
     def get_groups(self):
         return self.__groups
-        
+
     def get_group(self, id):
         return self.__groups.get(id)
+
+    def create_group(self, name, location, description, course_code, time, convenor, max_capacity, privacy_level):
+        self.__groupID+=1
+        group = GroupModel(self.__groupID, name, location, description, course_code, time, convenor, max_capacity, privacy_level)
+        self.add_group(group)
+        return group
 
     def add_group(self, group):
         if not isinstance(group, GroupModel):
             raise TypeError("Invalid type")
-        id = group.id
+        id = str(group.id)
         if self.get_group(id) is None:
             self.__groups[id] = group
+            print("added group {}".format(id))
         else:
             raise ValueError("Group key is already used")
 

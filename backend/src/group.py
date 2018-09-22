@@ -32,3 +32,8 @@ class GroupAll(Resource):
         for group_id in groups.keys():
             group_json[group_id] = groups[group_id].to_dict()
         return jsonify(group_json)
+
+    def post(self):
+        id = system.get_next_group_id()
+        username = request.form.get("username")
+

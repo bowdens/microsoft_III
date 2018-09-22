@@ -77,6 +77,8 @@ returns
     "password": "plaintext password"
     }
   ```
+  returns
+  same as above
   
   ### Subjects
   GET /user/<id>/subjects

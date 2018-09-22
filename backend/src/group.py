@@ -34,6 +34,19 @@ class GroupAll(Resource):
         return jsonify(group_json)
 
     def post(self):
-        id = system.get_next_group_id()
-        username = request.form.get("username")
+        try:
+            name = request.form.get("name")
+            location = request.form.get("location")
+            description = request.form.get("description")
+            course_code = request.form.get("course_code")
+            time = request.form.get("time")
+            convenor = request.form.get("convenor")
+            max_capacity = request.form.get("max_capacity")
+            privacy_level = request.form.get("privacy_level")
+            group = system.create_group(name, location, description, course_code, time, convenor, max_capacity, privacy_level)
+            return group.to_json()
+        except Exception as e:
+            print(e)
+            return {"didnt":"work"}
+
 

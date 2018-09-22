@@ -25,12 +25,10 @@ class System():
         id = str(group.id)
         if self.get_group(id) is None:
             self.__groups[id] = group
-            print("added group {}".format(id))
         else:
             raise ValueError("Group key is already used")
 
     def get_user(self, id):
-        print("getting {} in {}".format(id, self.__users))
         return self.__users.get(id)
 
     def add_user(self, user):

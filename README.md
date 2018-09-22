@@ -7,21 +7,26 @@ Returns a list of all the groups
 
 ```json
 {
-  "groups": [
-  {
-    "id": int,
-    "name": string,
-    "location": string,
-    "description": string,
-    "course codes": [],
-    "time": unix timestamp,
-    "convenor": userID,
-    "attendees": [userID, ...],
-    "maxCapacity": int,
-    "privacyLevel": int
+    "1": {
+        "course_code": [
+            "COMP1511",
+            "COMP1521"
+        ],
+        "description": "description",
+        "location": "location",
+        "max_capacity": 5,
+        "name": "name"
     },
-    ...
-    ]
+    "2": {
+        "course_code": [
+            "COMP3331",
+            "COMP6841"
+        ],
+        "description": "test description",
+        "location": "test location",
+        "max_capacity": 3,
+        "name": "test group"
+    }
 }
 ```
 ## Get particular group
@@ -30,16 +35,14 @@ returns
 
 ```json
 {
-    "id": int,
-  "name": string,
-  "location": string,
-  "description": string,
-  "course codes": [],
-  "time": unix timestamp,
-  "convenor": userID,
-  "attendees": [userID, ...],
-  "maxCapacity": int,
-  "privacyLevel": int
+    "course_code": [
+        "COMP1511",
+        "COMP1521"
+    ],
+    "description": "description",
+    "location": "location",
+    "max_capacity": 5,
+    "name": "name"
 }
 ```
 

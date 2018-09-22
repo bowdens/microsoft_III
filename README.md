@@ -124,3 +124,16 @@ body
 ```
 returns
 true OR false
+
+## Register for group
+POST /group/\<groupID\>  
+body
+
+```json
+{
+  "username": "username"
+}
+```
+
+returns the same as GET /group/\<groupID\>
+same as 

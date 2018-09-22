@@ -2,9 +2,9 @@
 
 ## List of API routes
 ## Get a list of all open groups
-GET /group/
-
+GET /group/  
 Returns a list of all the groups
+
 ```json
 {
   "groups": [
@@ -25,9 +25,9 @@ Returns a list of all the groups
 }
 ```
 ## Get particular group
-GET /group/<id>
+GET /group/\<id\>  
+returns  
 
-returns
 ```json
 {
     "id": int,
@@ -44,7 +44,7 @@ returns
 ```
 
 ## Get a particular user
-GET /user/<id>
+GET /user/\<id\>  
 returns
   
 ```json
@@ -66,7 +66,7 @@ returns
 ```
   
   ## Create new user
-  POST /user/<id>
+  POST /user/\<id\>  
   body
   
   ```json
@@ -81,7 +81,7 @@ returns
   same as above
   
   ### Subjects
-  GET /user/<id>/subjects
+  GET /user/\<id\>/subjects  
   returns
   
   ```json
@@ -101,7 +101,7 @@ returns
 ]
 ```
   
-POST /usr/<id>/subjects
+POST /user/\<id\>/subjects  
 body
 
   ```json
@@ -112,3 +112,15 @@ body
   ```
 returns
 (same as above)
+
+## User Validation
+POST /validate   
+body
+```json
+{
+  "username": "username",
+  "password": "plaintext password"
+}
+```
+returns
+true OR false

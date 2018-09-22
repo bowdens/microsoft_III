@@ -1,5 +1,5 @@
 import sys
-from random import sample, choice, seed
+from random import sample, choice, seed, randint
 
 first_name = list()
 last_name = list()
@@ -49,6 +49,11 @@ with open('test_data.txt', 'w') as data_file:
         attend = list(set(attend))
         capacity = choice(capacity_list)
         privacy = choice(privacy_list)
-        data_file.write(f'group = GroupModel("{i}", "Group {gname}", "Location", "{des}", {courses}, 63643534234, "{con}", {attend}, {capacity}, {privacy})\n')
+        data_file.write(f'group = GroupModel("{i}", "Group {gname}", "Location", "{des}", {courses}, 63643534234, "{con}", {capacity}, {privacy})\n')
         data_file.write('system.add_group(group)\n')
-    
+
+        for j in range(1, 3):
+            testernum = randint(1, user_num+1)
+            data_file.write('group.add_user("tester{}")\n'.format(testernum))
+
+

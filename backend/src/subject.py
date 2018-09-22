@@ -7,7 +7,7 @@ class Subject():
         self.mark = mark
 
     def to_json(self):
-        return jsonify(courseCode=self.courseCode, mark=self.mark))
+        return jsonify(courseCode=self.courseCode, mark=self.mark)
 
     @property
     def courseCode(self):

@@ -1,6 +1,6 @@
 from flask import jsonify
 
-class Subject():
+class SubjectModel():
     marks = ["HD", "DN", "CR", "PS", "FL", "ON"]
     def __init__(self, courseCode, mark):
         self.courseCode = courseCode

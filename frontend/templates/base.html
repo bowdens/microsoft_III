@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+		<style>
+				body {
+		margin: 100px;
+		padding: 20;
+		background: #fff;
+		}
+		.nav li {
+		font-family: 'Geneva', sans-serif;
+		font-size: 1.0em;
+		line-height: 50px;
+		height: 20px;
+		}
+		.nav li {
+   		display: inline-block;
+    	margin-right: 40px;
+  		}
+		  .nav ul {
+		list-style: none;
+		background-color: #f9c44f;
+		text-align: center;
+		padding: 40;
+		margin: 0;
+		height: 50px;
+		}
+		.nav a {
+		text-decoration: none;
+		color: #000;
+		display: block;
+		transition: .2s background-color;
+		}
+		
+		.nav a:hover {
+		color: #808080;
+		}
+		
+		.nav a.active {
+		color: #000;
+		cursor: pointer;
+		}
+				
+
+	</style>
+	<body>
+		<center>
+		<img src="https://www.unsw.edu.au/sites/default/files/UNSW_0.png"><br>
+		<br>
+		<div class="nav">
+		<ul>
+		   <font face = "Geneva" color="black" size = '3' weight: '3'>
+		
+		      <li class="home"><a href = "{{url_for('home')}}">Home</a></li>
+		      <li class="dashboard"><a href = "{{url_for('calender')}}">Calender</a></li>
+		</ul>
+		<br>
+		<br>
+	      </font>
+	   </center>
+	   </div>
+	</body>
+</html>

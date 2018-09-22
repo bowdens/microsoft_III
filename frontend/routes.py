@@ -2,6 +2,7 @@ import flask
 import flask_login
 from src.login import check_password, User
 from server import app
+from 
 
 @app.route("/")
 def index():
@@ -10,28 +11,19 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if flask.request.method == 'GET':
-        return '''
-               <form action='login' method='POST'>
-                <input type='text' name='email' id='email' placeholder='email'/>
-                <input type='password' name='password' id='password' placeholder='password'/>
-                <input type='submit' name='submit'/>
-               </form>
-               '''
-
-    email = flask.request.form['email']
-    if check_password(email, flask.request.form['password']):
-        user = User()
-        user.id = email
-        flask_login.login_user(user)
-        return flask.redirect(flask.url_for('protected'))
-
-    return 'Bad login'
+        return render_template('login.html')
+    return flask.redirect(flask.url_for('homepage'))
 
 
-@app.route('/protected')
-@flask_login.login_required
-def protected():
-    return 'Logged in as: ' + flask_login.current_user.id
+@app.route('/homepage', methods=['GET', 'POST'])
+def homepage():
+    if request.method == 'POST':
+      groups = request.get("http://localhost:5000//all_groups").json()
+      
+      
+    #else display all groups in the system -- maybe sort by date
+    #just have a list of group names, date-time, course
+    return render_template('homepage.html', groups)
     
 @app.route('/logout')
 def logout():

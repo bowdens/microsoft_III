@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ <form method='POST'>
+
+<b>
+Filter Groups
+</b>
+<div>
+   Date: 
+	<br><input type="datetime-local" name="chosen_date">
+</div>
+
+{% for group in groups %}
+<li><a href = "{{url_for('viewgroup', title = group.get_title())}}">{{event.get_title()}}: {{event.get_num_attendees()}}/{{event.get_capacity()}} Capacity</a></li><br>
+{% endfor %}
+

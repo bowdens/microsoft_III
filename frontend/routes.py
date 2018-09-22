@@ -36,6 +36,23 @@ def logout():
     flask_login.logout_user()
     return 'Logged out'
 
-@app.route('/group/<id>', methods=['GET'])
-def show_group():
-    return 'just to test'
+@app.route('/group/<id>', methods=['GET', 'POST'])
+def show_group(id):
+    if flask.request.method == 'GET':
+        try:
+            group = requests.get("http://localhost:5000/group/{}".format(id)).json()
+            return flask.render_template('group.html', group=group)
+        except Exception as e:
+            return flask.render_template('error.html', error="Could not reach api server\n{}".format(e))
+    else:
+        try:
+            username = flask.request.form['username']
+            group = requests.post("http://localhost:5000/group/{}".format(id), data={"username":username}).json()
+            print(group)
+            if group.get('attendees') is None:
+                return flask.render_template('error.html', error="could not register under that name")
+
+            return flask.render_template('group.html', group=group)
+        except Exception as e:
+            print(e)
+            return flask.render_template('error.html', error="There was an error registering for this event\n{}".format(e))

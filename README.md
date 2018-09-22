@@ -63,3 +63,31 @@ returns
   ]
 }
 ```
+  
+  ### Subjects
+  GET /user/<id>/subjects
+  returns
+  ```
+   [
+    {
+        "courseCode": "COMP1511",
+        "mark": "DN"
+    },
+    {
+        "courseCode": "COMP1521",
+        "mark": "CR"
+    },
+    {
+        "courseCode": "COMP3331",
+        "mark": "CR"
+    }
+]
+  
+POST /usr/<id>/subjects
+body
+{
+  "courseCode": "COMP1511",
+  "mark": "DN"
+}
+returns
+(same as above)

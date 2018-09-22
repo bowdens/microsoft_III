@@ -15,7 +15,7 @@ class GroupModel():
 
 
     def to_json(self):
-        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.atendees, id=self.id, convenor=self.convenor, privacy_level=self.privacy_level)
+        return jsonify(name=self.name, location=self.location, description=self.description, course_code=self.course_code, max_capacity=self.max_capacity, time=self.time, attendees=self.attendees, id=self.id, convenor=self.convenor, privacy_level=self.privacy_level)
 
     def to_dict(self):
         return {"name": self.name, "location": self.location, "description": self.description, "course_code": self.course_code, "max_capacity": self.max_capacity, "num_attending": self.num_attending()}

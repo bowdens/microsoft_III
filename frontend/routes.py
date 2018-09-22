@@ -3,6 +3,7 @@ import flask_login
 from src.login import check_password, User
 from server import app
 import requests
+import time
 
 @app.route("/")
 def index():
@@ -23,7 +24,16 @@ def homepage():
 @app.route('/create', methods=['GET', 'POST'])
 def create():
     if flask.request.method == 'POST':
-        pass
+        to_post = {}
+        to_post['name'] = flask.request.form.get("name")
+        to_post['location'] = flask.request.form.get("location")
+        to_post['description'] = flask.request.form.get("description")
+        to_post['course_code'] = flask.request.form.get("course_code")
+        to_post['time'] = time.time()
+        to_post['convenor'] = "tester"
+        to_post['max_capacity'] = flask.request.form.get("max_capacity")
+        to_post['privacy_level'] = flask.request.form.get("privacy_level")
+        requests.post("http://localhost:5000/group", data = to_post)
     return flask.render_template('create.html')
 
 @app.route('/logout')

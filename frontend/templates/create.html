@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<form class="form-horizontal">
+<form class="form-horizontal" method="post">
 <fieldset>
 
 <!-- Form Name -->
@@ -40,9 +40,9 @@
 
 <!-- Select Multiple -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="courses">Select courses</label>
+  <label class="col-md-4 control-label" for="course_code">Select courses</label>
   <div class="col-md-4">
-    <select id="courses" name="courses" class="form-control" multiple="multiple">
+    <select id="courses" name="course_code" class="form-control" multiple="multiple">
       <option value="ACCT1501">ACCT1501</option>
       <option value="ACCT1511">ACCT1511</option>
       <option value="ACCT2101">ACCT2101</option>
@@ -83,9 +83,9 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="privacy">Privacy</label>
+  <label class="col-md-4 control-label" for="privacy_level">Privacy</label>
   <div class="col-md-4">
-    <select id="privacy" name="privacy" class="form-control">
+    <select id="privacy" name="privacy_level" class="form-control">
       <option value="1">Public</option>
       <option value="2">Invite only</option>
       <option value="3">Private</option>
@@ -94,6 +94,8 @@
 </div>
 
 </fieldset>
+
+<input type="submit" value="Submit">
 </form>
 
 {% endblock %}

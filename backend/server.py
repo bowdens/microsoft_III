@@ -19,3 +19,5 @@ system.add_user(user)
 
 group = GroupModel("1", "name", "location", "description", ["COMP1511", "COMP1521"], 63643534234, "tester", ["tester"], 5, 1)
 system.add_group(group)
+
+system.add_group(GroupModel("2", "test group", "test location", "test description", ["COMP3331", "COMP6841"], 63643534800, "tester", ["tester"], 3, 1))
